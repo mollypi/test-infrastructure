@@ -14,8 +14,6 @@ spec:
     server: https://kubernetes.default.svc
     namespace: guestbook
   syncPolicy:
-    automated:
-      prune: true
     syncOptions:
       - CreateNamespace=false
 
@@ -41,8 +39,6 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: andrea
   syncPolicy:
-    automated:
-      prune: true
     syncOptions:
       - CreateNamespace=false
 ---
@@ -100,7 +96,5 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: andrea
   syncPolicy:
-    automated:
-      prune: true
     syncOptions:
       - CreateNamespace=false
