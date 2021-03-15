@@ -1,0 +1,108 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: guestbook
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/andreaczar/test-infrastructure.git
+    targetRevision: HEAD
+    path: guestbook
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: guestbook
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=false
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-guestbook
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/andreaczar/test-infrastructure.git'
+    path: helm-guestbook
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values-production.yaml
+      parameters:
+        - name: service.type
+          value: NodePort
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: andrea
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: helm-guestbook-test
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/andreaczar/test-infrastructure.git'
+    path: helm-guestbook
+    targetRevision: HEAD
+    helm:
+      valueFiles:
+        - values-test.yaml
+      parameters:
+        - name: service.type
+          value: NodePort
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: andrea
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/andreaczar/test-infrastructure.git'
+    path: nginx
+    targetRevision: test
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: andrea
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=false
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: postgres
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/andreaczar/test-infrastructure.git'
+    path: postgres
+    targetRevision: HEAD
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: andrea
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=false
