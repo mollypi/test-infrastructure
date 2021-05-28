@@ -7,7 +7,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/andreaczar/test-infrastructure.git
+    repoURL: git@github.com:mollypi/test-infrastructure.git
     targetRevision: HEAD
     path: guestbook
   destination:
@@ -26,7 +26,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/andreaczar/test-infrastructure.git'
+    repoURL: 'git@github.com:mollypi/test-infrastructure.git'
     path: helm-guestbook
     targetRevision: HEAD
     helm:
@@ -50,7 +50,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/andreaczar/test-infrastructure.git'
+    repoURL: 'git@github.com:mollypi/test-infrastructure.git'
     path: helm-guestbook
     targetRevision: HEAD
     helm:
@@ -71,7 +71,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/andreaczar/test-infrastructure.git'
+    repoURL: 'git@github.com:mollypi/test-infrastructure.git'
     path: nginx
     targetRevision: test
   destination:
@@ -89,7 +89,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/andreaczar/test-infrastructure.git'
+    repoURL: 'git@github.com:mollypi/test-infrastructure.git'
     path: postgres
     targetRevision: HEAD
   destination:
