@@ -1,0 +1,30 @@
+repo_name: mollypi/test-infrastructure
+report_id: a80edd6b873cc823d4e8cacf2a892977
+version: 0.1
+repo_type: Public
+timestamp: '2024-02-29T18:46:19+00:00'
+requested_by: mollypi
+provider: github
+branch: master
+detected_tools_count: 2
+tools:
+- name: Mustache
+  description: Logic-less templates
+  website_url: http://mustache.github.io/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Templating Languages & Extensions
+  image_url: https://img.stackshare.io/service/1142/197655.png
+  detection_source_url: https://github.com/mollypi/test-infrastructure
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/mollypi/test-infrastructure
+  detection_source: Repo Metadata
